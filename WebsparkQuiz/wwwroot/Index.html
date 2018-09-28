@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title></title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/main.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container container-fluid">
+        <div class="news-section">
+            <div id="NewsList" class="row row-flex">
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/handlebars.min.js"></script>
+    <script src="js/main.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            NewsController.initData("news-item-template", "#NewsList");
+        });
+    </script>
+    <script id="news-item-template" type="text/x-handlebars-template">        
+        <div class="col-md-4 col-sm-6 col-xs-12 col-flex">
+            <div class="news-card">
+                <a href="{{NewsUrl}}"></a>
+                <div class="news-image-container">
+                    <img src="{{ImageUrl}}">
+                </div>
+                <div class="news-text-container">
+                    <span class="news-title">{{Title}}</span>
+                    <p class="news-desc">{{Description}}</p>
+                </div>
+                <div class="news-text-category">
+                    <span class="news-category-desc">{{Category.CategoryName}}</span>
+                </div>
+            </div>
+        </div>        
+    </script>
+</body>
+</html>

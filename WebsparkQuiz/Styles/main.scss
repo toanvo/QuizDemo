@@ -1,0 +1,102 @@
+﻿@import "abstracts/vars";
+@import "abstracts/mixins";
+
+.news-section {
+    margin: 4em 0em 4em 0em;
+    background: #F8F8F8;    
+    padding: 1em;
+}
+
+.col-flex {
+    margin-bottom: 1em;
+}
+
+.row-flex {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include respond-to(mobile) {
+        display: initial;
+    }
+}
+
+.news-card {
+    background-color: $bg-white;
+    padding: 0;
+    transition: 0.5s ease;
+    height: 100%;
+    position: relative;
+
+    a {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+    }
+
+    .news-image-container {
+        height: 260px;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+
+        img {
+            object-fit: contain;
+            width: 100%;
+        }
+    }
+
+    .news-text-container {
+        display: grid;
+        padding: $small-padding;
+        margin-bottom: $medium-margin;
+
+        .news-title {
+            font-size: $font-normal;
+            font-weight: $title-text-black-weight;
+            line-height: 1.22;
+            letter-spacing: 0.1px;
+            color: $title-black;
+            margin-bottom: $less-small-margin;
+        }
+
+        .news-desc {
+            font-size: $font-medium-description;
+            line-height: 1.4;
+            letter-spacing: 0.1px;
+            color: $title-reference-color;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3; /* number of lines to show */
+            max-height: 1.4*3; /* fallback */
+        }
+    }
+
+    .news-text-category {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding-left: $small-padding;
+        padding-bottom: $small-padding;
+        margin-top: $medium-margin;
+
+        .news-category-desc {
+            text-transform: uppercase;
+            margin-bottom: $small-margin;
+        }
+    }
+
+    &:hover {
+        box-shadow: 0 0 14px 1px rgba(175, 175, 175, 0.3);
+        transform: translateY(-5px);
+        cursor: pointer;
+    }
+
+    &:active {
+        transform: scale(0.96);
+        box-shadow: none;
+    }
+}
